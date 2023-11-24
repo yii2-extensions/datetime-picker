@@ -24,6 +24,12 @@
     </a>         
 </p>
 
+<p align="center">
+    <a href="https://github.com/yii2-extensions/datetime-picker" target="_blank">
+        <img src="docs/images/datetime-picker.png">
+    </a>
+</p>
+
 ## Installation 
 
 The preferred way to install this extension is through [composer](https://getcomposer.org/download/).
