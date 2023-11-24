@@ -33,7 +33,6 @@ final class DateTimePicker extends InputWidget
     public int $startOfTheWeek = 1;
     public string $template = "{label}\n{input}\n{span}";
 
-
     public function init(): void
     {
         parent::init();
@@ -122,7 +121,7 @@ final class DateTimePicker extends InputWidget
             ->dataAttributes(['td-target' => "#$this->id"])
             ->type('text');
 
-        $input =  match ($this->hasModel()) {
+        $input = match ($this->hasModel()) {
             true => $input
                 ->id(Html::getInputId($this->model, $this->attribute))
                 ->name(Html::getInputName($this->model, $this->attribute))
