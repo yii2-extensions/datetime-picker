@@ -82,10 +82,6 @@ final class DateTimePicker extends InputWidget
      */
     public function run(): string
     {
-        if ($this->model === null && $this->name === null) {
-            new InvalidConfigException('Either "name" or "model" and "attribute" properties must be specified.');
-        }
-
         $this->registerClientScript();
 
         return $this->renderDateTimePicker();
