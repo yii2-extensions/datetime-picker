@@ -10,7 +10,6 @@ use PHPForge\Html\Input;
 use PHPForge\Html\Label;
 use PHPForge\Html\Span;
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
