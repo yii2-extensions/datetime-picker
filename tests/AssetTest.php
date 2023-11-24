@@ -82,6 +82,12 @@ final class AssetTest extends TestCase
 
         $this->assertStringContainsString(
             <<<HTML
+            <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.19/dist/css/tempus-dominus.min.css" rel="stylesheet" crossorigin="anonymous">
+            HTML,
+            $result,
+        );
+        $this->assertStringContainsString(
+            <<<HTML
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"></script>
             HTML,
             $result,
