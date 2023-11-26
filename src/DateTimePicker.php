@@ -22,6 +22,7 @@ final class DateTimePicker extends InputWidget
     public array $config = [];
     public string $containerClass = 'input-group';
     public bool $floatingLabel = false;
+    public string $format = 'yyyy-MM-dd HH:mm:ss';
     public string $formatMonth = 'long';
     public string $formatYear = 'numeric';
     public string $icon = '';
@@ -68,6 +69,7 @@ final class DateTimePicker extends InputWidget
                     'month' => $this->formatMonth,
                     'year' => $this->formatYear,
                 ],
+                'format' => $this->format,
                 'locale' => Yii::$app->language,
                 'startOfTheWeek' => $this->startOfTheWeek,
             ],

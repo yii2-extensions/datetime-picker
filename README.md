@@ -121,6 +121,7 @@ This configuration is then applied to the tempusDominus widget using the library
 | `containerClass` | `string`      | The class of the container.        | `input-group`               |
 | `cdn`            | `boolean`     | Whether to use the CDN.            | `true`                      |
 | `floatingLabel`  | `boolean`     | Whether to use the floating label. | `false`                     |
+| `format`         | `string`      | The format of the date.            | `yyyy/MM/dd HH:mm:ss`       |
 | `formatMonth`    | `string`      | The format of the month.           | `long`                      |
 | `formatYear`     | `string`      | The format of the year.            | `numeric`                   |
 | `icon`           | `string`      | The icon of the widget.            | `''`                        |
