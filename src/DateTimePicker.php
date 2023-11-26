@@ -91,7 +91,31 @@ final class DateTimePicker extends InputWidget
         $config = json_encode($this->config);
 
         return <<<JS
-            $("#$this->id").tempusDominus({$config});
+            const htmlElement = document.querySelector('html');
+            let theme = htmlElement.getAttribute('data-bs-theme');
+
+            const config = JSON.parse('$config');
+
+            if (config.display && config.display.theme) {
+                theme = config.display.theme;
+            } else if (!theme) {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                theme = prefersDark ? 'dark' : 'light';
+            }
+
+            if (theme === 'dark' || theme === 'auto') {
+                config.display = {
+                    theme: 'dark',
+                };
+            }
+
+            if (theme === 'light') {
+                config.display = {
+                    theme: 'light',
+                };
+            }
+
+            $("#$this->id").tempusDominus(config);
         JS;
     }
 

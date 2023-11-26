@@ -47,7 +47,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -80,7 +104,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -112,7 +160,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"short","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"short","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -144,7 +216,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"2-digit"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"2-digit"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -176,7 +272,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -208,7 +328,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker2").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker2").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -240,7 +384,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -272,7 +440,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -303,7 +495,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -335,7 +551,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -367,7 +607,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":0}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":0}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
@@ -398,7 +662,31 @@ final class DateTimePickerTest extends TestCase
         $this->assertStringContainsString(
             <<<JS
             <script>jQuery(function ($) {
-                $("#datetimepicker1").tempusDominus({"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}});
+                const htmlElement = document.querySelector('html');
+                let theme = htmlElement.getAttribute('data-bs-theme');
+
+                const config = JSON.parse('{"localization":{"today":"Go to today","clear":"Clear selection","close":"Close picker","selectMonth":"Select month","previousMonth":"Previous month","nextMonth":"Next month","selectYear":"Select year","previousYear":"Previous year","nextYear":"Next year","selectDecade":"Select decade","previousDecade":"Previous decade","nextDecade":"Next decade","previousCentury":"Previous century","nextCentury":"Next century","pickHour":"Pick hour","incrementHour":"Increment hour","decrementHour":"Decrement hour","pickMinute":"Pick minute","incrementMinute":"Increment minute","decrementMinute":"Decrement minute","pickSecond":"Pick second","incrementSecond":"Increment second","decrementSecond":"Decrement second","toggleMeridiem":"Toggle meridiem","selectTime":"Select time","selectDate":"Select date","dayViewHeaderFormat":{"month":"long","year":"numeric"},"locale":"en-US","startOfTheWeek":1}}');
+
+                if (config.display && config.display.theme) {
+                    theme = config.display.theme;
+                } else if (!theme) {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    theme = prefersDark ? 'dark' : 'light';
+                }
+
+                if (theme === 'dark' || theme === 'auto') {
+                    config.display = {
+                        theme: 'dark',
+                    };
+                }
+
+                if (theme === 'light') {
+                    config.display = {
+                        theme: 'light',
+                    };
+                }
+
+                $("#datetimepicker1").tempusDominus(config);
             });</script>
             JS,
             $render,
