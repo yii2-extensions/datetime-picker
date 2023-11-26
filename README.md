@@ -98,17 +98,17 @@ This library provides functionality to dynamically configure the tempusDominus w
 
 The library introduces a feature to automatically set up the tempusDominus widget with a theme determined by the user's preference or specified configurations.
 
-##### Automatic Theme Configuration:
+##### Automatic Theme Configuration
 
 Upon initialization, the library checks for theme configuration settings.
 If the user has specified a theme in the library's configuration, it takes precedence.
 
-##### Browser-Based Theme Detection:
+##### Browser-Based Theme Detection
 
 If no specific theme is set or the attribute data-bs-theme is absent:
 The library uses the prefers-color-scheme media query to detect the user's system preference for `light` or `dark` mode.
 
-##### Applying Theme Configuration to tempusDominus Widget:
+##### Applying Theme Configuration to tempusDominus Widget
 
 The library sets the theme configuration `(theme: 'dark' or theme: 'light')` based on the detected or specified theme.
 This configuration is then applied to the tempusDominus widget using the library's internal functionalities.
