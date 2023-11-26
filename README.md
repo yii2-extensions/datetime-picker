@@ -134,7 +134,7 @@ This configuration is then applied to the tempusDominus widget using the library
 ### Translation support
 
 The extension supports translation. You can translate the extension into your language,
-for default the extension supports the following languages:
+for default the extension supports the following languages.
 
 - Chinese
 - English
