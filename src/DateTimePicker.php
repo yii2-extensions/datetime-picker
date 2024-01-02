@@ -6,9 +6,9 @@ namespace Yii2\Extensions\DateTimePicker;
 
 use PHPForge\Html\Div;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Input;
 use PHPForge\Html\Label;
 use PHPForge\Html\Span;
+use PHPForge\Html\Tag;
 use Yii;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
@@ -137,9 +137,10 @@ final class DateTimePicker extends InputWidget
             ->dataAttributes(['td-target' => "#$this->id", 'td-toggle' => 'datetimepicker'])
             ->class($this->spanClass)
             ->content($this->icon);
-        $input = Input::widget()
+        $input = Tag::widget()
             ->attributes($this->options)
             ->dataAttributes(['td-target' => "#$this->id"])
+            ->tagName('input')
             ->type('text');
 
         $input = match ($this->hasModel()) {
