@@ -22,8 +22,8 @@
     "require-dev": {
         "maglnet/composer-require-checker": "^4.6",
         "php-forge/support": "dev-main",
-        "phpunit/phpunit": "^10.2",
-        "roave/infection-static-analysis-plugin": "^1.32",
+        "phpunit/phpunit": "10.5.3",
+        "roave/infection-static-analysis-plugin": "^1.34",
         "yii2-extensions/phpstan": "dev-main"
     },
     "autoload": {

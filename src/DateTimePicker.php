@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Yii2\Extensions\DateTimePicker;
 
+use JsonException;
 use PHPForge\Html\Div;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Input;
+use PHPForge\Html\Input\Text;
 use PHPForge\Html\Label;
 use PHPForge\Html\Span;
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
@@ -33,6 +35,9 @@ final class DateTimePicker extends InputWidget
     public int $startOfTheWeek = 1;
     public string $template = "{label}\n{input}\n{span}";
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function init(): void
     {
         parent::init();
@@ -88,9 +93,12 @@ final class DateTimePicker extends InputWidget
         return $this->renderDateTimePicker();
     }
 
+    /**
+     * @throws JsonException
+     */
     private function getScript(): string
     {
-        $config = json_encode($this->config);
+        $config = json_encode($this->config, JSON_THROW_ON_ERROR);
 
         return <<<JS
             const htmlElement = document.querySelector('html');
@@ -124,7 +132,6 @@ final class DateTimePicker extends InputWidget
     private function renderDateTimePicker(): string
     {
         $containerOptions = [];
-        $label = '';
         $template = $this->floatingLabel ? "{input}\n{span}\n{label}" : "{input}\n{span}";
 
         CssClass::add($containerOptions, $this->floatingLabel ? 'form-floating' : '');
@@ -137,10 +144,7 @@ final class DateTimePicker extends InputWidget
             ->dataAttributes(['td-target' => "#$this->id", 'td-toggle' => 'datetimepicker'])
             ->class($this->spanClass)
             ->content($this->icon);
-        $input = Input::widget()
-            ->attributes($this->options)
-            ->dataAttributes(['td-target' => "#$this->id"])
-            ->type('text');
+        $input = Text::widget()->attributes($this->options)->dataAttributes(['td-target' => "#$this->id"]);
 
         $input = match ($this->hasModel()) {
             true => $input
@@ -172,6 +176,9 @@ final class DateTimePicker extends InputWidget
         };
     }
 
+    /**
+     * @throws JsonException
+     */
     private function registerClientScript(): void
     {
         $view = $this->getView();
