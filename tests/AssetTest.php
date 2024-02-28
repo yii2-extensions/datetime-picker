@@ -59,12 +59,16 @@ final class AssetTest extends \PHPUnit\Framework\TestCase
         $directory = __DIR__ . '/Support/runtime/16b8de20';
 
         $this->assertFileDoesNotExist("$directory/css/tempus-dominus.min.css");
+        $this->assertFileDoesNotExist("$directory/css/tempus-dominus.min.css.map");
         $this->assertFileDoesNotExist("$directory/js/tempus-dominus.min.js");
+        $this->assertFileDoesNotExist("$directory/js/tempus-dominus.min.js.map");
         $this->assertFileDoesNotExist("$directory/jQuery-provider.min.js");
         $this->assertFileDoesNotExist("$directory/popper.min.js");
 
         $this->assertFileExists("$directory/css/tempus-dominus.css");
+        $this->assertFileExists("$directory/css/tempus-dominus.css.map");
         $this->assertFileExists("$directory/js/tempus-dominus.js");
+        $this->assertFileExists("$directory/js/tempus-dominus.js.map");
         $this->assertFileExists("$directory/jQuery-provider.js");
         $this->assertFileExists("$directory/popper.js");
 
