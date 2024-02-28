@@ -13,6 +13,11 @@ final class JQueryProviderAsset extends AssetBundle
 {
     public $sourcePath = '@npm/eonasdan--tempus-dominus/dist/js';
 
+    /**
+     * @phpstan-var array<array-key, mixed>
+     */
+    public $depends = [DateTimePickerAsset::class];
+
     public function __construct()
     {
         parent::__construct();

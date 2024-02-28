@@ -9,13 +9,16 @@ use Yii2\Extensions\DateTimePicker\{
     Asset\DateTimePickerAsset,
     Asset\DateTimePickerCdnAsset,
     Asset\JQueryProviderAsset,
-    DateTimePicker
+    DateTimePicker,
+    Tests\Support\TestSupport
 };
 use Yii;
 use yii\web\AssetBundle;
 
-final class AssetTest extends TestCase
+final class AssetTest extends \PHPUnit\Framework\TestCase
 {
+    use TestSupport;
+
     public function setup(): void
     {
         parent::setUp();
@@ -30,7 +33,7 @@ final class AssetTest extends TestCase
     {
         $this->assertEmpty($this->view->assetBundles);
 
-        DateTimePickerAsset::register($this->view);
+        JQueryProviderAsset::register($this->view);
 
         $this->assertCount(3, $this->view->assetBundles);
 
@@ -41,12 +44,6 @@ final class AssetTest extends TestCase
 
     public function testDateTimePickerAssetRegister(): void
     {
-        $this->assertEmpty($this->view->assetBundles);
-
-        DateTimePickerAsset::register($this->view);
-
-        $this->assertCount(3, $this->view->assetBundles);
-
         $result = $this->view->renderFile(
             __DIR__ . '/Support/main.php',
             [
@@ -58,6 +55,22 @@ final class AssetTest extends TestCase
                 ),
             ],
         );
+
+        $directory = __DIR__ . '/Support/runtime/16b8de20';
+
+        $this->assertFileDoesNotExist("$directory/css/tempus-dominus.min.css");
+        $this->assertFileDoesNotExist("$directory/css/tempus-dominus.min.css.map");
+        $this->assertFileDoesNotExist("$directory/js/tempus-dominus.min.js");
+        $this->assertFileDoesNotExist("$directory/js/tempus-dominus.min.js.map");
+        $this->assertFileDoesNotExist("$directory/jQuery-provider.min.js");
+        $this->assertFileDoesNotExist("$directory/popper.min.js");
+
+        $this->assertFileExists("$directory/css/tempus-dominus.css");
+        $this->assertFileExists("$directory/css/tempus-dominus.css.map");
+        $this->assertFileExists("$directory/js/tempus-dominus.js");
+        $this->assertFileExists("$directory/js/tempus-dominus.js.map");
+        $this->assertFileExists("$directory/jQuery-provider.js");
+        $this->assertFileExists("$directory/popper.js");
 
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
