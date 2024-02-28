@@ -45,4 +45,3 @@ final class DateTimePickerCdnAsset extends AssetBundle
         ];
     }
 }
-
