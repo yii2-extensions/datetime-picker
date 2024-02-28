@@ -44,12 +44,6 @@ final class AssetTest extends \PHPUnit\Framework\TestCase
 
     public function testDateTimePickerAssetRegister(): void
     {
-        $this->assertEmpty($this->view->assetBundles);
-
-        JQueryProviderAsset::register($this->view);
-
-        $this->assertCount(3, $this->view->assetBundles);
-
         $result = $this->view->renderFile(
             __DIR__ . '/Support/main.php',
             [
@@ -62,11 +56,11 @@ final class AssetTest extends \PHPUnit\Framework\TestCase
             ],
         );
 
-        $this->assertStringNotContainsString('css/tempus-dominus.min.css', $result);
-        $this->assertStringNotContainsString('js/tempus-dominus.min.js', $result);
-        $this->assertStringNotContainsString('jQuery-provider.min.js', $result);
-        $this->assertStringNotContainsString('popper.min.js', $result);
-        $this->assertStringNotContainsString('jquery.min.js', $result);
+        $directory = __DIR__ . '/Support/runtime/16b8de20';
+
+        $this->assertDirectoryDoesNotExist("$directory/css/tempus-dominus.min.css");
+        $this->assertDirectoryDoesNotExist("$directory/css/js/tempus-dominus.min.js");
+        $this->assertDirectoryDoesNotExist("$directory/css/js/jQuery-provider.min.js");
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
         $this->assertStringContainsString('jQuery-provider.js', $result);

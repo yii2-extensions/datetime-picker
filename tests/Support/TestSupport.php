@@ -38,6 +38,7 @@ trait TestSupport
                         'appendTimestamp' => false,
                         'basePath' => __DIR__ . '/runtime',
                         'baseUrl' => '/',
+                        'forceCopy' => true,
                     ],
                     'i18n' => [
                         'translations' => [
@@ -55,6 +56,10 @@ trait TestSupport
                 ],
             ],
         );
+
+        Yii::$app->assetManager->hashCallback = static function (string $path) {
+            return '16b8de20';
+        };
     }
 
     /**
