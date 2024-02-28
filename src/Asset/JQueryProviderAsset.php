@@ -18,7 +18,7 @@ final class JQueryProviderAsset extends AssetBundle
         parent::__construct();
 
         $environment = defined('YII_ENV') ? YII_ENV : 'prod';
-        $jsFiles = $environment === 'prod' ? 'JQuery-provider.min.js' : 'JQuery-provider.js';
+        $jsFiles = $environment === 'prod' ? 'jQuery-provider.min.js' : 'jQuery-provider.js';
 
         $this->js = [$jsFiles];
         $this->publishOptions['only'] = [$jsFiles];

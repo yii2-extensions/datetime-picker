@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace Yii2\Extensions\DateTimePicker\Tests;
 
 use Yii2\Asset\{PopperAsset, PopperCdnAsset};
-use Yii2\Extensions\DateTimePicker\{Asset\DateTimePickerAsset, Asset\DateTimePickerCdnAsset, DateTimePicker};
+use Yii2\Extensions\DateTimePicker\{
+    Asset\DateTimePickerAsset,
+    Asset\DateTimePickerCdnAsset,
+    Asset\JQueryProviderAsset,
+    DateTimePicker
+};
 use Yii;
 use yii\web\AssetBundle;
 
@@ -31,6 +36,7 @@ final class AssetTest extends TestCase
 
         $this->assertInstanceOf(AssetBundle::class, $this->view->assetBundles[DateTimePickerAsset::class]);
         $this->assertInstanceOf(AssetBundle::class, $this->view->assetBundles[PopperAsset::class]);
+        $this->assertInstanceOf(AssetBundle::class, $this->view->assetBundles[JQueryProviderAsset::class]);
     }
 
     public function testDateTimePickerAssetRegister(): void
@@ -55,8 +61,8 @@ final class AssetTest extends TestCase
 
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
+        $this->assertStringContainsString('jQuery-provider.js', $result);
         $this->assertStringContainsString('popper.js', $result);
-        $this->assertStringContainsString('JQuery-provider.js', $result);
         $this->assertStringContainsString('jquery.js', $result);
     }
 

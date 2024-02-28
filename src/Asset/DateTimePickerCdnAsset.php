@@ -31,17 +31,18 @@ final class DateTimePickerCdnAsset extends AssetBundle
         ];
         $this->js = [
             [
-                'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/js/jQuery-provider.min.js',
-                'crossorigin' => 'anonymous',
-                'integrity' => 'sha256-NMrbeybKZu57CqLc5IecBME3FpiCIhcicPBoZCQ2gXc=',
-                'rel' => 'stylesheet',
-            ],
-            [
                 'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/js/tempus-dominus.min.js',
                 'crossorigin' => 'anonymous',
                 'integrity' => 'sha256-HhK4pzV6V5uvaAYnvGv7rdtJPnECOyPE5ht/eE6dvYw=',
                 'rel' => 'stylesheet',
             ],
+            [
+                'https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/js/jQuery-provider.min.js',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha256-NMrbeybKZu57CqLc5IecBME3FpiCIhcicPBoZCQ2gXc=',
+                'rel' => 'stylesheet',
+            ],
         ];
     }
 }
+
