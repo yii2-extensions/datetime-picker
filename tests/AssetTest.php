@@ -27,7 +27,7 @@ final class AssetTest extends TestCase
 
         DateTimePickerAsset::register($this->view);
 
-        $this->assertCount(2, $this->view->assetBundles);
+        $this->assertCount(3, $this->view->assetBundles);
 
         $this->assertInstanceOf(AssetBundle::class, $this->view->assetBundles[DateTimePickerAsset::class]);
         $this->assertInstanceOf(AssetBundle::class, $this->view->assetBundles[PopperAsset::class]);
@@ -39,7 +39,7 @@ final class AssetTest extends TestCase
 
         DateTimePickerAsset::register($this->view);
 
-        $this->assertCount(2, $this->view->assetBundles);
+        $this->assertCount(3, $this->view->assetBundles);
 
         $result = $this->view->renderFile(
             __DIR__ . '/Support/main.php',
@@ -55,6 +55,8 @@ final class AssetTest extends TestCase
 
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
+        $this->assertStringContainsString('popper.js', $result);
+        $this->assertStringContainsString('JQuery-provider.js', $result);
         $this->assertStringContainsString('jquery.js', $result);
     }
 
@@ -93,7 +95,7 @@ final class AssetTest extends TestCase
 
         $this->assertStringContainsString(
             <<<HTML
-            <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.19/dist/css/tempus-dominus.min.css" rel="stylesheet" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/css/tempus-dominus.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha256-CnrhpfYrXdEi7tt7MaXkXnjHOtTw2WUF/ZtHsRYTd9o=">
             HTML,
             $result,
         );
@@ -105,7 +107,13 @@ final class AssetTest extends TestCase
         );
         $this->assertStringContainsString(
             <<<HTML
-            <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.7.19/dist/js/tempus-dominus.min.js" rel="stylesheet" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/js/jQuery-provider.min.js" rel="stylesheet" crossorigin="anonymous" integrity="sha256-NMrbeybKZu57CqLc5IecBME3FpiCIhcicPBoZCQ2gXc="></script>
+            HTML,
+            $result,
+        );
+        $this->assertStringContainsString(
+            <<<HTML
+            <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.5/dist/js/tempus-dominus.min.js" rel="stylesheet" crossorigin="anonymous" integrity="sha256-HhK4pzV6V5uvaAYnvGv7rdtJPnECOyPE5ht/eE6dvYw="></script>
             HTML,
             $result,
         );
