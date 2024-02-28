@@ -17,5 +17,5 @@ parameters:
         - vendor/yiisoft/yii2/Yii.php
 
     yii2:
-        config_path: %currentWorkingDirectory%/phpstan-yii-config.php
+        config_path: %currentWorkingDirectory%/phpstan-config.php
 

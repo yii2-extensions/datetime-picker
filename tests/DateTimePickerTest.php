@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Yii2\Extensions\DateTimePicker\Tests;
 
-use PHPForge\Html\I;
-use PHPForge\Support\Assert;
-use Yii2\Extensions\DateTimePicker\DateTimePicker;
-use Yii2\Extensions\DateTimePicker\Tests\Support\DateTimePickerModel;
+use PHPForge\{Html\Textual\I, Support\Assert};
+use Yii2\Extensions\DateTimePicker\{DateTimePicker, Tests\Support\DateTimePickerModel};
 use Yii;
 
 final class DateTimePickerTest extends TestCase
@@ -32,7 +30,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -88,7 +88,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -145,7 +147,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -201,7 +205,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -257,7 +263,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -313,7 +321,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -369,7 +379,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -424,7 +436,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -480,7 +494,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -535,7 +551,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -592,7 +610,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -648,7 +668,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML
@@ -703,7 +725,9 @@ final class DateTimePickerTest extends TestCase
             ],
         );
 
-        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', ['widget' => $dateTimePicker]);
+        $render = $this->view->renderFile(__DIR__ . '/Support/main.php', [
+            'widget' => $dateTimePicker,
+        ]);
 
         Assert::equalsWithoutLE(
             <<<HTML

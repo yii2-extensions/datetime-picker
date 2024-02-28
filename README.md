@@ -36,17 +36,17 @@ The preferred way to install this extension is through [composer](https://getcom
 
 Either run
 
-```
-composer require --dev --prefer-dist yii2-extensions/datetime-picker
+```shell
+composer require --dev --prefer-dist yii2-extensions/datetime-picker:^0.1
 ```
 
 or add
 
-```
-"yii2-extensions/datetime-picker": "dev-main"
+```json
+"yii2-extensions/datetime-picker": "^0.1"
 ```
 
-to the require-dev section of your `composer.json` file.
+to the require section of your `composer.json` file.
 
 ## Usage
 
@@ -158,7 +158,7 @@ for default the extension supports the following languages.
 
 ## Testing
 
-[Check the documentation testing](/docs/testing.md) to learn about testing.
+[Check the documentation testing](docs/testing.md) to learn about testing.
 
 ## Our social networks
 
@@ -166,4 +166,4 @@ for default the extension supports the following languages.
 
 ## License
 
-The MIT License. Please see [License File](LICENSE.md) for more information.
+The MIT License. Please see [License File](LICENSE) for more information.

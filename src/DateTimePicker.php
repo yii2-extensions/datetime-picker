@@ -5,15 +5,9 @@ declare(strict_types=1);
 namespace Yii2\Extensions\DateTimePicker;
 
 use JsonException;
-use PHPForge\Html\Div;
-use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Input\Text;
-use PHPForge\Html\Label;
-use PHPForge\Html\Span;
+use PHPForge\Html\{Group\Div, Helper\CssClass, FormControl\Input\Text, FormControl\Label, Textual\Span};
 use Yii;
-use yii\base\InvalidConfigException;
-use yii\helpers\Html;
-use yii\widgets\InputWidget;
+use yii\{base\InvalidConfigException, helpers\Html, widgets\InputWidget};
 
 final class DateTimePicker extends InputWidget
 {
@@ -84,7 +78,7 @@ final class DateTimePicker extends InputWidget
     }
 
     /**
-     * @inheritdoc
+     * @throws JsonException
      */
     public function run(): string
     {
@@ -141,10 +135,21 @@ final class DateTimePicker extends InputWidget
             ->class($this->labelClass)
             ->content(Yii::t('yii2.extensions.datetime.picker', $this->labelContent));
         $span = Span::widget()
-            ->dataAttributes(['td-target' => "#$this->id", 'td-toggle' => 'datetimepicker'])
+            ->dataAttributes(
+                [
+                    'td-target' => "#$this->id",
+                    'td-toggle' => 'datetimepicker',
+                ]
+            )
             ->class($this->spanClass)
             ->content($this->icon);
-        $input = Text::widget()->attributes($this->options)->dataAttributes(['td-target' => "#$this->id"]);
+        $input = Text::widget()
+            ->attributes($this->options)
+            ->dataAttributes(
+                [
+                    'td-target' => "#$this->id",
+                ]
+            );
 
         $input = match ($this->hasModel()) {
             true => $input
@@ -166,7 +171,12 @@ final class DateTimePicker extends InputWidget
         $div = Div::widget()
             ->attributes($containerOptions)
             ->content($content)
-            ->dataAttributes(['td-target-input' => 'nearest', 'td-target-toggle' => 'nearest'])
+            ->dataAttributes(
+                [
+                    'td-target-input' => 'nearest',
+                    'td-target-toggle' => 'nearest',
+                ]
+            )
             ->id($this->id)
             ->render();
 

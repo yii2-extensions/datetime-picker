@@ -6,10 +6,7 @@ namespace Yii2\Extensions\DateTimePicker\Tests;
 
 use PHPForge\Support\Assert;
 use Yii;
-use yii\di\Container;
-use yii\i18n\PhpMessageSource;
-use yii\web\Application;
-use yii\web\View;
+use yii\{di\Container, i18n\PhpMessageSource, web\Application, web\View};
 
 /**
  * This is the base class for all yii framework unit tests.
@@ -35,8 +32,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
                 'id' => 'testapp',
                 'aliases' => [
                     '@root' => dirname(__DIR__),
-                    '@bower' => '@root/node_modules',
-                    '@npm' => '@root/node_modules',
+                    '@bower' => '@vendor/bower-asset',
+                    '@npm' => '@vendor/npm-asset',
                 ],
                 'basePath' => dirname(__DIR__),
                 'components' => [

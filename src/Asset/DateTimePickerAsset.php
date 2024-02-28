@@ -12,32 +12,25 @@ use yii\web\AssetBundle;
  */
 final class DateTimePickerAsset extends AssetBundle
 {
-    /**
-     * @inheritDoc
-     */
     public $sourcePath = '@npm/eonasdan--tempus-dominus/dist';
 
     /**
-     * @inheritDoc
-     *
      * @phpstan-var array<array-key, mixed>
      */
     public $depends = [
         PopperAsset::class,
     ];
 
-    public function init(): void
+    public function __construct()
     {
-        parent::init();
+        parent::__construct();
 
-        $this->css = YII_ENV === 'prod' ? ['css/tempus-dominus.min.css'] : ['css/tempus-dominus.css'];
-        $this->js = YII_ENV === 'prod'
-            ? ['js/tempus-dominus.min.js', 'js/jQuery-provider.min.js'] : ['js/tempus-dominus.js', 'js/jQuery-provider.js'];
+        $environment = defined('YII_ENV') ? YII_ENV : 'prod';
+        $cssFiles = $environment === 'prod' ? 'css/tempus-dominus.min.css' : 'css/tempus-dominus.css';
+        $jsFiles = $environment === 'prod' ? 'js/tempus-dominus.min.js' : 'js/tempus-dominus.js';
 
-        $this->publishOptions['only'] = array_merge(
-            $this->css,
-            YII_ENV === 'prod' ? [] : ['css/bootstrap.js.map', 'js/bootstrap.js.map'],
-            $this->js,
-        );
+        $this->css = [$cssFiles];
+        $this->js = [$jsFiles];
+        $this->publishOptions['only'] = [$cssFiles, "$cssFiles.map", $jsFiles, "$jsFiles.map"];
     }
 }

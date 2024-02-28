@@ -13,8 +13,6 @@ use yii\web\AssetBundle;
 final class DateTimePickerCdnAsset extends AssetBundle
 {
     /**
-     * @inheritDoc
-     *
      * @phpstan-var array<array-key, mixed>
      */
     public $depends = [

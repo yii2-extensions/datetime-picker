@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Yii2\Extensions\DateTimePicker\Tests;
 
-use Yii2\Asset\PopperAsset;
-use Yii2\Asset\PopperCdnAsset;
-use Yii2\Extensions\DateTimePicker\Asset\DateTimePickerAsset;
-use Yii2\Extensions\DateTimePicker\Asset\DateTimePickerCdnAsset;
-use Yii2\Extensions\DateTimePicker\DateTimePicker;
+use Yii2\Asset\{PopperAsset, PopperCdnAsset};
+use Yii2\Extensions\DateTimePicker\{Asset\DateTimePickerAsset, Asset\DateTimePickerCdnAsset, DateTimePicker};
 use Yii;
 use yii\web\AssetBundle;
 
@@ -46,12 +43,18 @@ final class AssetTest extends TestCase
 
         $result = $this->view->renderFile(
             __DIR__ . '/Support/main.php',
-            ['widget' => DateTimePicker::widget(['name' => 'tags', 'id' => 'tests-id'])],
+            [
+                'widget' => DateTimePicker::widget(
+                    [
+                        'name' => 'tags',
+                        'id' => 'tests-id',
+                    ]
+                ),
+            ],
         );
 
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
-        $this->assertStringContainsString('js/jQuery-provider.js', $result);
         $this->assertStringContainsString('jquery.js', $result);
     }
 
@@ -77,7 +80,15 @@ final class AssetTest extends TestCase
 
         $result = $this->view->renderFile(
             __DIR__ . '/Support/main.php',
-            ['widget' => DateTimePicker::widget(['cdn' => true, 'id' => 'tests-id', 'name' => 'tags'])],
+            [
+                'widget' => DateTimePicker::widget(
+                    [
+                        'cdn' => true,
+                        'id' => 'tests-id',
+                        'name' => 'tags',
+                    ]
+                ),
+            ],
         );
 
         $this->assertStringContainsString(
