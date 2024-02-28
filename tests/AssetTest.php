@@ -30,7 +30,7 @@ final class AssetTest extends TestCase
     {
         $this->assertEmpty($this->view->assetBundles);
 
-        DateTimePickerAsset::register($this->view);
+        JQueryProviderAsset::register($this->view);
 
         $this->assertCount(3, $this->view->assetBundles);
 
@@ -43,7 +43,7 @@ final class AssetTest extends TestCase
     {
         $this->assertEmpty($this->view->assetBundles);
 
-        DateTimePickerAsset::register($this->view);
+        JQueryProviderAsset::register($this->view);
 
         $this->assertCount(3, $this->view->assetBundles);
 

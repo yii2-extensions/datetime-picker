@@ -17,10 +17,7 @@ final class DateTimePickerAsset extends AssetBundle
     /**
      * @phpstan-var array<array-key, mixed>
      */
-    public $depends = [
-        PopperAsset::class,
-        JQueryProviderAsset::class,
-    ];
+    public $depends = [PopperAsset::class];
 
     public function __construct()
     {

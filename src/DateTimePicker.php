@@ -195,7 +195,7 @@ final class DateTimePicker extends InputWidget
 
         match ($this->cdn) {
             true => Asset\DateTimePickerCdnAsset::register($view),
-            default => Asset\DateTimePickerAsset::register($view),
+            default => Asset\JQueryProviderAsset::register($view),
         };
 
         $view->registerJs($this->getScript());
