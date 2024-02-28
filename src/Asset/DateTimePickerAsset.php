@@ -19,6 +19,7 @@ final class DateTimePickerAsset extends AssetBundle
      */
     public $depends = [
         PopperAsset::class,
+        JQueryProviderAsset::class,
     ];
 
     public function __construct()
