@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Yii2\Extensions\DateTimePicker\Tests;
 
 use PHPForge\{Html\Textual\I, Support\Assert};
-use Yii2\Extensions\DateTimePicker\{DateTimePicker, Tests\Support\DateTimePickerModel};
+use Yii2\Extensions\DateTimePicker\{DateTimePicker, Tests\Support\DateTimePickerModel, Tests\Support\TestSupport};
 use Yii;
 
-final class DateTimePickerTest extends TestCase
+final class DateTimePickerTest extends \PHPUnit\Framework\TestCase
 {
+    use TestSupport;
+
     public function setup(): void
     {
         parent::setUp();

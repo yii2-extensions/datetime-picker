@@ -9,13 +9,16 @@ use Yii2\Extensions\DateTimePicker\{
     Asset\DateTimePickerAsset,
     Asset\DateTimePickerCdnAsset,
     Asset\JQueryProviderAsset,
-    DateTimePicker
+    DateTimePicker,
+    Tests\Support\TestSupport
 };
 use Yii;
 use yii\web\AssetBundle;
 
-final class AssetTest extends TestCase
+final class AssetTest extends \PHPUnit\Framework\TestCase
 {
+    use TestSupport;
+
     public function setup(): void
     {
         parent::setUp();

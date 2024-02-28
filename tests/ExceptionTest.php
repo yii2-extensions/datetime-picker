@@ -7,7 +7,7 @@ namespace Yii2\Extensions\DateTimePicker\Tests;
 use Yii2\Extensions\DateTimePicker\DateTimePicker;
 use yii\base\InvalidConfigException;
 
-final class ExceptionTest extends TestCase
+final class ExceptionTest extends \PHPUnit\Framework\TestCase
 {
     public function testWithoutModelWithoutName(): void
     {
