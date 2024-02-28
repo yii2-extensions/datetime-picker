@@ -59,6 +59,11 @@ final class AssetTest extends TestCase
             ],
         );
 
+        $this->assertStringNotContainsString('css/tempus-dominus.min.css', $result);
+        $this->assertStringNotContainsString('js/tempus-dominus.min.js', $result);
+        $this->assertStringNotContainsString('jQuery-provider.min.js', $result);
+        $this->assertStringNotContainsString('popper.min.js', $result);
+        $this->assertStringNotContainsString('jquery.min.js', $result);
         $this->assertStringContainsString('css/tempus-dominus.css', $result);
         $this->assertStringContainsString('js/tempus-dominus.js', $result);
         $this->assertStringContainsString('jQuery-provider.js', $result);
