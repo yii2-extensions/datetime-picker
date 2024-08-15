@@ -95,7 +95,7 @@ final class DateTimePicker extends InputWidget
         $config = json_encode($this->config, JSON_THROW_ON_ERROR);
 
         return <<<JS
-            const htmlElement = document.querySelector('html');
+            (function(){const htmlElement = document.querySelector('html');
             let theme = htmlElement.getAttribute('data-bs-theme');
 
             const config = JSON.parse('$config');
@@ -119,7 +119,7 @@ final class DateTimePicker extends InputWidget
                 };
             }
 
-            $("#$this->id").tempusDominus(config);
+            $("#$this->id").tempusDominus(config);})()
         JS;
     }
 
